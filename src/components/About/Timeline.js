@@ -50,7 +50,7 @@ function Timeline() {
                 <div className='absolute w-full h-full'>
                     <img src='./images/logo_big.svg' alt='Occamy' className="w-full h-auto object-cover" />
                 </div>
-                <div className="grid grid-cols-12 gap-4">
+                <div className="relative z-10 grid grid-cols-12 gap-4">
                     <div className="relative col-span-3 md:col-span-4 lg:col-span-6 mt-32 mb-56" ref={divRef}>
                         <div
                             className="absolute left-0 top-0 transition-transform w-full flex justify-center"
