@@ -62,7 +62,7 @@ function Timeline() {
                             <div className="relative">
                                 {/* První p element */}
                                 <p 
-                                    className="text-vertical-horizontal relative px-2 z-10 text-extra-blue text-3xl md:text-6xl font-bold md:bg-black text-center transition-all duration-100 ease-out"
+                                    className="text-vertical-horizontal relative px-2 z-10 text-extra-blue text-6xl font-bold md:bg-black text-center transition-all duration-100 ease-out"
                                     style={{
                                         fontFamily: "sans-serif"
                                     }}>
