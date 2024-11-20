@@ -64,7 +64,8 @@ function Timeline() {
                                 <p 
                                     className="text-vertical-horizontal relative px-2 z-10 text-extra-blue text-6xl font-bold md:bg-black text-center transition-all duration-100 ease-out"
                                     style={{
-                                        fontFamily: "sans-serif"
+                                        fontFamily: "sans-serif",
+                                        textShadow: "0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff"
                                     }}>
                                     {year}
                                 </p>
@@ -75,7 +76,7 @@ function Timeline() {
                                     style={{
                                         WebkitTextFillColor: "transparent",
                                         WebkitTextStroke: "1px white",
-                                        fontFamily: "sans-serif",
+                                        fontFamily: "sans-serif"
                                     }}
                                 >
                                     {year}
