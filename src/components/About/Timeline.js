@@ -84,7 +84,7 @@ function Timeline() {
                         </div>
                     </div>
 
-                    <div className="h-full col-span-9 md:col-span-8 lg:col-span-6 flex flex-col gap-8 lg:gap-16">
+                    <div className="h-full col-span-9 md:col-span-8 lg:col-span-6 flex flex-col gap-16">
                         {timelineData.map((item, index) => (
                             <TimelineContent key={index} image={item.image} title={item.title} description={item.description} />
                         ))}
