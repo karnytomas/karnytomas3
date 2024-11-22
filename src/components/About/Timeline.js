@@ -47,6 +47,9 @@ function Timeline() {
 
         return (
             <section className="relative px-4 sm:px-12 md:px-24 lg:px-28 py-16 min-w-screen bg-black text-white text-lg font-bold">
+                <h2 className="text-center font-extrabold text-6xl mb-8">
+                    TIMELINE MK2
+                </h2>
                 <div className='absolute w-full h-full'>
                     <img src='./images/logo_big.svg' alt='Occamy' className="w-full h-auto object-cover" />
                 </div>
