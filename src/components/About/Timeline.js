@@ -16,27 +16,23 @@ function Timeline() {
 
         useEffect(() => {
             const handleScroll = () => {
-                if (divRef.current) {
-                    const rect = divRef.current.getBoundingClientRect();
-                    const windowHeight = window.innerHeight;
+                if (divRef.current) 
+                {
+                    const rect = divRef.current.getBoundingClientRect(); //Získá informace o rozměrech a pozici div vzhledem k viewportu.
+                    const windowHeight = window.innerHeight; //Výška viditelné oblasti okna pro porovnání s pozicí div.
 
-                    // Vypočítáme maximální viditelný posun v rámci kontejneru
-                    if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
-                        const maxScroll = Math.min(rect.height - 100, (windowHeight / 2 - rect.top));
-                        const visiblePercentage = Math.max(0, maxScroll / rect.height);
+                    // Kontroluje, zda střed okna (poloha windowHeight / 2) spadá mezi horní (rect.top) a spodní (rect.bottom) část div.
+                    if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) 
+                    {
+                        const maxScroll = Math.min(rect.height, (windowHeight / 2 - rect.top)); //Zajišťuje, že nepřekročí výšku div sníženou o 100 px.
+                        const visiblePercentage = Math.max(0, maxScroll / rect.height); //Jak daleko je střed okna od horní hrany div.
 
                         // Interpolace pro zjemnění změny scroll pozice
-                        const smoothedScrollPosition = scrollPosition + (visiblePercentage - scrollPosition) * 0.1;
+                        const smoothedScrollPosition = scrollPosition + (visiblePercentage - scrollPosition) * 0.1; //Interpolace postupně aktualizuje scrollPosition, aby přechod byl plynulý.
                         setScrollPosition(smoothedScrollPosition);
 
-                        const newYear = 2014 + Math.floor(smoothedScrollPosition * 10);
+                        const newYear = 2014 + Math.floor(smoothedScrollPosition * 11); //Rok se pohybuje mezi 2014 (scroll position = 0) a 2024 (scroll position = 1) podle interpolovaného posunu.
                         setYear(newYear);
-                    } else if (rect.top > windowHeight / 2) {
-                        setScrollPosition(0);
-                        setYear(2014);
-                    } else if (rect.bottom < windowHeight / 2) {
-                        setScrollPosition(1);
-                        setYear(2024);
                     }
                 }
             };
@@ -47,35 +43,41 @@ function Timeline() {
 
         return (
             <section className="relative px-4 sm:px-12 md:px-24 lg:px-28 py-16 min-w-screen bg-black text-white text-lg font-bold">
-                <h2 className="text-center font-extrabold text-6xl mb-8">
-                    TIMELINE MK1
-                </h2>
-                <div className='absolute w-full h-full'>
-                    <img src='./images/logo_big.svg' alt='Occamy' className="w-full h-auto object-cover" />
+                
+                <div className="absolute inset-x-0 top-16 bottom-16 overflow-hidden">
+                    <img
+                        src="./images/logo_big.svg"
+                        alt="Occamy"
+                        className="absolute inset-0 w-auto h-full object-cover"
+                        style={{
+                            minWidth: "100%"
+                        }}
+                    />
                 </div>
+
                 <div className="relative z-10 grid grid-cols-12 gap-4">
-                    <div className="relative col-span-3 md:col-span-4 lg:col-span-6 mt-32 mb-56" ref={divRef}>
+                    <div className="relative col-span-3 md:col-span-4 lg:col-span-6 mt-24 mb-56 md:mb-44" ref={divRef}>
                         <div
                             className="absolute left-0 top-0 transition-transform w-full flex justify-center"
                             style={{
-                                transform: `translateY(${scrollPosition * (divRef.current ? divRef.current.clientHeight - 100 : 0)}px)`,
+                                top: `${scrollPosition * (divRef.current ? divRef.current.clientHeight - 100 : 0)}px`,
                                 height: "100%",
                             }}
                         >
                             <div className="relative">
                                 {/* První p element */}
-                                <p 
-                                    className="text-vertical-horizontal relative px-2 z-10 text-extra-blue text-6xl font-bold md:bg-black text-center transition-all duration-100 ease-out"
+                                <span 
+                                    className="text-vertical-horizontal relative px-2 z-10 text-extra-blue text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold md:bg-black text-center"
                                     style={{
                                         fontFamily: "sans-serif",
                                         textShadow: "0 0 10px #380EC6, 0 0 20px #380EC6, 0 0 40px #380EC6, 0 0 80px #380EC6"
                                     }}>
                                     {year}
-                                </p>
+                                </span>
                                 
                                 {/* Druhý p element se stejným textem */}
-                                <p
-                                    className="absolute px-2 top-[26px] hidden md:block text-6xl font-bold text-white text-center"
+                                <span
+                                    className="absolute px-2 top-[26px] lg:top-[36px] xl:top-[50px] hidden md:block text-7xl lg:text-8xl xl:text-9xl font-bold text-white text-center"
                                     style={{
                                         WebkitTextFillColor: "transparent",
                                         WebkitTextStroke: "1px white",
@@ -83,7 +85,7 @@ function Timeline() {
                                     }}
                                 >
                                     {year}
-                                </p>
+                                </span>
                             </div>
                         </div>
                     </div>
