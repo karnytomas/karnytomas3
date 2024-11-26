@@ -451,9 +451,9 @@ button:hover .arrow {
 
 .PresentationFirst {
   transform: translateX(calc(-16.6667%)); /* Výchozí posun */
-  animation: PresentationFirstAnimation 5s linear forwards; /* Animace */
+  animation: PresentationFirstAnimation linear; /* Animace */
   animation-timeline: view(); /* Synchronizace s viditelností */
-  animation-range: entry 20%; /* Animace začne při 20% viditelnosti */
+  animation-range: entry 20% cover 40%; /* Animace začne při 20% viditelnosti */
   animation-fill-mode: forwards; /* Zajištění trvalého koncového stavu */
 }
 
@@ -469,9 +469,9 @@ button:hover .arrow {
 
 .PresentationSecond {
   transform: translateX(calc(16.6667%)); /* Výchozí posun */
-  animation: PresentationSecondAnimation 5s linear forwards; /* Animace */
+  animation: PresentationSecondAnimation linear; /* Animace */
   animation-timeline: view(); /* Synchronizace s viditelností */
-  animation-range: entry 20%; /* Animace začne při 20% viditelnosti */
+  animation-range: entry 20% cover 40%; /* Animace začne při 20% viditelnosti */
   animation-fill-mode: forwards; /* Zajištění trvalého koncového stavu */
 }
 
