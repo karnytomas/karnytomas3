@@ -3,6 +3,7 @@ import SectionLast from '../components/SectionLast';
 import OurValues from '../components/OurValues';
 import Services from '../components/Services';
 import WhyUsSection from '../components/WhyUsSection';
+import Presentation from '../components/Presentation';
 
 const servicesData = {
   title: "Služby - Webový vývoj", 
@@ -19,6 +20,7 @@ function Web() {
       <Services servicesData={servicesData} />
       <WhyUsSection/>
       <OurValues/>
+      <Presentation />
       <SectionLast/>
     </>
   );
