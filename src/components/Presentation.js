@@ -97,7 +97,7 @@ function Presentation() {
     return (
         <section
             ref={sectionRef}
-            className="flex flex-col gap-4 px-2 lg:px-4 py-36 min-w-screen"
+            className="flex flex-col gap-4 px-2 lg:px-4 py-36 min-w-screen overflow-hidden"
         >
             <div>
                 <div className="flex flex-row gap-4 h-32 md:h-46 lg:h-64 Presentation PresentationFirst" ref={presentationFirstRef}>
