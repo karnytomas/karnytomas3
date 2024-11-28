@@ -100,7 +100,7 @@ function Presentation() {
             className="flex flex-col gap-4 px-2 lg:px-4 py-36 min-w-screen"
         >
             <div>
-                <div className="flex flex-row gap-4 h-64 Presentation PresentationFirst" ref={presentationFirstRef}>
+                <div className="flex flex-row gap-4 h-32 md:h-46 lg:h-64 Presentation PresentationFirst" ref={presentationFirstRef}>
                     {presentationItemsLeft.map((item, index) => (
                         <PresentationItem key={index} image={item.image} colorFrom={item.colorFrom} colorTo={item.colorTo}/>
                     ))}
@@ -123,7 +123,7 @@ function Presentation() {
             </div>
 
             <div>
-                <div className="flex flex-row gap-4 h-64 Presentation PresentationSecond" ref={presentationSecondRef}>
+                <div className="flex flex-row gap-4 h-32 md:h-46 lg:h-64 Presentation PresentationSecond" ref={presentationSecondRef}>
                     {presentationItemsRight.map((item, index) => (
                         <PresentationItem key={index} image={item.image} colorFrom={item.colorFrom} colorTo={item.colorTo}/>
                     ))}
