@@ -452,6 +452,10 @@ button:hover .arrow {
   .Presentation::-webkit-scrollbar{
     display: none;
   }
+  .PresentationItem{
+    scroll-snap-align: start;
+    flex: 0 0 auto; /* Zajistí správnou šířku prvku */
+  }
 }
 
 /* 1. DIV */
@@ -464,9 +468,4 @@ button:hover .arrow {
 .PresentationSecond {
   transform: translateX(calc(16.6667% * (1 - var(--progress)))); /* Animace ovládaná přes --progress */
   transition: transform 0.1s linear;
-}
-
-.PresentationItem{
-  scroll-snap-align: start;
-  min-width: 300px;
 }
