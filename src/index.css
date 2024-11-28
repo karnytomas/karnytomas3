@@ -438,62 +438,35 @@ button:hover .arrow {
 
 
 /* Presentation */
-/* MOŽNOST A */
-/* 1. DIV */
-@keyframes PresentationFirstAnimation {
-  from {
-    transform: translateX(calc(-16.6667%)); /* Počáteční posun */
+/* Globální styl pro animaci */
+:root {
+  --progress: 0; /* Výchozí stav animace */
+}
+
+@media (max-width: 767px){
+  .Presentation{
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
-  to {
-    transform: translateX(0); /* Konečný stav */
+  .Presentation::-webkit-scrollbar{
+    display: none;
   }
 }
 
+/* 1. DIV */
 .PresentationFirst {
-  transform: translateX(calc(-16.6667%)); /* Výchozí posun */
-  animation: PresentationFirstAnimation linear; /* Animace */
-  animation-timeline: view(); /* Synchronizace s viditelností */
-  animation-range: entry 20% cover 40%; /* Animace začne při 20% viditelnosti */
-  animation-fill-mode: forwards; /* Zajištění trvalého koncového stavu */
+  transform: translateX(calc(-16.6667% * (1 - var(--progress)))); /* Animace ovládaná přes --progress */
+  transition: transform 0.1s linear;
 }
 
 /* 2. DIV */
-@keyframes PresentationSecondAnimation {
-  from {
-    transform: translateX(calc(16.6667%)); /* Počáteční posun */
-  }
-  to {
-    transform: translateX(0); /* Konečný stav */
-  }
-}
-
 .PresentationSecond {
-  transform: translateX(calc(16.6667%)); /* Výchozí posun */
-  animation: PresentationSecondAnimation linear; /* Animace */
-  animation-timeline: view(); /* Synchronizace s viditelností */
-  animation-range: entry 20% cover 40%; /* Animace začne při 20% viditelnosti */
-  animation-fill-mode: forwards; /* Zajištění trvalého koncového stavu */
+  transform: translateX(calc(16.6667% * (1 - var(--progress)))); /* Animace ovládaná přes --progress */
+  transition: transform 0.1s linear;
 }
 
-
-/* MOŽNOST B */
-/* Styly pro první prvek */
-.PresentationFirst2 {
-  transform: translateX(calc(-16.6667%)); /* Výchozí posun */
+.PresentationItem{
+  scroll-snap-align: start;
+  min-width: 300px;
 }
-
-/* Styly pro druhý prvek */
-.PresentationSecond2 {
-  transform: translateX(calc(16.6667%)); /* Výchozí posun */
-}
-
-
-.PresentationFirst2.visible {
-  animation: PresentationFirstAnimation 2s linear forwards;
-}
-
-/* Styly pro druhý prvek */
-.PresentationSecond2.visible {
-  animation: PresentationSecondAnimation 2s linear forwards;
-}
-
