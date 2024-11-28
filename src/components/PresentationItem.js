@@ -3,7 +3,7 @@ import React from "react";
 function PresentationItem({image, colorFrom, colorTo}){
     return(
         <div 
-            className={`flex justify-center items-center bg-gradient-to-b ${colorFrom} ${colorTo} p-4 lg:p-8 min-w-46 sm:min-w-56 md:w-full rounded-2xl PresentationItem`}
+            className={`flex justify-center items-center bg-gradient-to-b ${colorFrom} ${colorTo} p-4 lg:p-8 w-[128px] md:w-full rounded-2xl PresentationItem`}
         >
             <img
                 src={`./images/Presentation/${image}`}
